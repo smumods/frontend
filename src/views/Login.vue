@@ -2,13 +2,14 @@
   <div class="login">
     <h1>Login/Register Page</h1>
 
-    <a href="tg://resolve?domain=SMUModsBot&start=login" @click="redirectLoginTelegram" >Login with Telegram</a>
+    <!-- <a href="tg://resolve?domain={{telegram_bot_name}}&start=login" @click="redirectLoginTelegram" >Login with Telegram</a> -->
+    <a :href="'tg://resolve?domain=' + telegram_bot_name + '&start=login'" @click="redirectLoginTelegram" >Login with Telegram</a>
     <br/>
     <br/>
 
     <span>Don't have an account yet? </span>
     <br/>
-    <a href="tg://resolve?domain=SMUModsBot&start=signup" @click="redirectLoginTelegram" >Signup with Telegram</a>
+    <a :href="'tg://resolve?domain=' + telegram_bot_name + '&start=signup'" @click="redirectRegisterTelegram" >Signup with Telegram</a>
   </div>
 </template>
 
@@ -16,18 +17,20 @@
   export default {
     data() {
       return {
-        telegram_bot_login_url: "tg://resolve?domain=SMUModsBot&start=signup"
+        telegram_bot_name: process.env.VUE_APP_TELEGRAM_BOT_NAME
       }
     },
     methods: {
       redirectLoginTelegram() {
         setTimeout(() => {
-          window.location = process.env.VUE_APP_TELEGRAM_BOT_URL + "?start=login"
+          console.log("redirecting to https://t.me/" + this.telegram_bot_name + "?start=login" )
+          window.location = "https://t.me/" + this.telegram_bot_name + "?start=login"
         }, 3000)
       },
       redirectRegisterTelegram() {
         setTimeout(() => {
-          window.location = process.env.VUE_APP_TELEGRAM_BOT_URL + "?start=signup"
+          console.log("redirecting to https://t.me/" + this.telegram_bot_name + "?start=signup")
+          window.location = "https://t.me/" + this.telegram_bot_name + "?start=signup"
         }, 3000)
       }
     }
