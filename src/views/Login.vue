@@ -2,13 +2,13 @@
   <div class="login">
     <h1>Login/Register Page</h1>
 
-    <a :href="telegram_bot_url" @click="someMethod" >Login with Telegram</a>
+    <a href="tg://resolve?domain=SMUModsBot&start=login" @click="redirectLoginTelegram" >Login with Telegram</a>
     <br/>
     <br/>
 
     <span>Don't have an account yet? </span>
     <br/>
-    <a href="">Register with Telegram</a>
+    <a href="tg://resolve?domain=SMUModsBot&start=signup" @click="redirectLoginTelegram" >Signup with Telegram</a>
   </div>
 </template>
 
@@ -16,14 +16,18 @@
   export default {
     data() {
       return {
-        telegram_bot_url: "tg://resolve?domain=SMUModsBot&start=signup"
+        telegram_bot_login_url: "tg://resolve?domain=SMUModsBot&start=signup"
       }
     },
     methods: {
-      someMethod() {
+      redirectLoginTelegram() {
         setTimeout(() => {
-          console.log("Zach method works", process.env.VUE_APP_TELEGRAM_BOT_URL)
-          window.location = process.env.VUE_APP_TELEGRAM_BOT_URL
+          window.location = process.env.VUE_APP_TELEGRAM_BOT_URL + "?start=login"
+        }, 3000)
+      },
+      redirectRegisterTelegram() {
+        setTimeout(() => {
+          window.location = process.env.VUE_APP_TELEGRAM_BOT_URL + "?start=signup"
         }, 3000)
       }
     }
