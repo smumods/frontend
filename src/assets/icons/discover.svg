@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="22px" height="22px" viewBox="0 0 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>discover</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Navigation/Mobile/Discover" transform="translate(-24.000000, -8.000000)" fill="#0085FD" fill-rule="nonzero">
+            <path d="M35,30 C28.9248678,30 24,25.0751322 24,19 C24,12.9248678 28.9248678,8 35,8 C41.0751322,8 46,12.9248678 46,19 C46,25.0751322 41.0751322,30 35,30 Z M35,28 C39.9705627,28 44,23.9705627 44,19 C44,14.0294373 39.9705627,10 35,10 C30.0294373,10 26,14.0294373 26,19 C26,23.9705627 30.0294373,28 35,28 Z M40.5811388,13.4188612 L37.7905694,21.7905694 L29.4188612,24.5811388 L32.2094306,16.2094306 L40.5811388,13.4188612 Z M32.5811388,21.4188612 L36.2094306,20.2094306 L37.4188612,16.5811388 L33.7905694,17.7905694 L32.5811388,21.4188612 Z" id="discover"></path>
+        </g>
+    </g>
+</svg>

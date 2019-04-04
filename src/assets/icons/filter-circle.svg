@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="46px" height="46px" viewBox="0 0 46 46" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>Graphic/Circle Icon</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Graphic/Circle-Icon" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <circle id="Oval" fill="#EDF1F7" fill-rule="nonzero" cx="23" cy="23" r="23"></circle>
+        <g id="Icon/Filter" transform="translate(11.000000, 11.000000)" fill="#0740F9" fill-rule="nonzero">
+            <path d="M13.8554782,12.5714286 L20.1554782,5.71428571 L3.84452188,5.71428571 L10.1445218,12.5714286 L13.8554782,12.5714286 Z M13.2,14.8571429 L10.8,14.8571429 L10.8,20.6365709 L13.2,19.779428 L13.2,14.8571429 Z M2.4,3.42857143 L21.6,3.42857143 L21.6,2.28571429 L2.4,2.28571429 L2.4,3.42857143 Z M8.4,14.1436973 L0,5.00084014 L0,2.28571429 C0,1.02334914 1.0745166,-2.64677169e-13 2.4,-2.64677169e-13 L21.6,-2.64677169e-13 C22.9254834,-2.64677169e-13 24,1.02334914 24,2.28571429 L24,5.00084014 L15.6,14.1436973 L15.6,21.3634291 L8.4,23.9348577 L8.4,14.1436973 Z" id="filter"></path>
+        </g>
+    </g>
+</svg>

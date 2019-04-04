@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="23px" viewBox="0 0 24 23" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>star-active</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icon/Star/Active" fill="#0740F9" fill-rule="nonzero">
+            <path d="M12,18.6297757 L4.79401645,22.4181855 L6.17023685,14.3942049 L0.340473695,8.71159025 L8.39700823,7.54090726 L12,0.240448538 L15.6029918,7.54090726 L23.6595263,8.71159025 L17.8297632,14.3942049 L19.2059835,22.4181855 L12,18.6297757 Z" id="star-active"></path>
+        </g>
+    </g>
+</svg>
