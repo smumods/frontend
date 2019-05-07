@@ -2,6 +2,7 @@
   <div id="app">
     <span class="nav-title">SMUMods</span>
     <nav-tabs></nav-tabs>
+    <search-bar></search-bar>
     <!-- <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/login">Login</router-link>
@@ -12,10 +13,11 @@
 
 <script>
 import NavTabs from "./components/NavTabs.vue"
+import SearchBar from "./components/SearchBar.vue"
 
 export default {
   components: {
-    NavTabs
+    NavTabs, SearchBar
   },
   // ...
 }
@@ -27,10 +29,6 @@ export default {
 
 @import "./styles/_variables.scss";
 
-// Variables
-
-
-
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,900');
 
 #app {
@@ -41,7 +39,7 @@ export default {
 .nav-title {
   display: block;
   text-align: center;
-  margin: 10px 0;
+  margin: 14px 0;
   font-size: 1.5em;
   color: $primary;
   font-weight: 700;

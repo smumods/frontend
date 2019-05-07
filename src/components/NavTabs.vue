@@ -7,19 +7,19 @@
       </div>
     </li>
     <li>
-      <div :class="[{'nav-icon-title': true}, {'active': active === 1}]>
+      <div :class="[{'nav-icon-title': true}, {'active': active === 1}]">
         <icon-base icon-name="professor"><icon-professor /></icon-base>
         <span>Professors</span>
       </div>
     </li>
     <li>
-      <div :class="[{'nav-icon-title': true}, {'active': active === 2}]>
+      <div :class="[{'nav-icon-title': true}, {'active': active === 2}]">
         <icon-base icon-name="module"><icon-module /></icon-base>
         <span>Modules</span>
       </div>
     </li>
     <li>
-      <div :class="[{'nav-icon-title': true}, {'active': active === 3}]>
+      <div :class="[{'nav-icon-title': true}, {'active': active === 3}]">
         <icon-base icon-name="profile"><icon-profile /></icon-base>
         <span>Profile</span>
       </div>
