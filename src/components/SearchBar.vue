@@ -1,11 +1,13 @@
 <template>
   <div class="search-container">
-    <icon-base icon-name="search">
-      <icon-search/>
-    </icon-base>
-    <input placeholder="Search profs or modules" v-model="search">
-    <div v-on:click="clear()" v-show="search.length > 0">
-      <icon-base icon-name="clear" >
+    <div @click="focus">
+      <icon-base icon-name="search">
+        <icon-search/>
+      </icon-base>
+    </div>
+    <input ref="search" @keyup.esc="search = ''" placeholder="Search profs or modules" v-model="search">
+    <div @click="search = ''" v-show="search.length > 0">
+      <icon-base icon-name="clear">
         <icon-clear/>
       </icon-base>
     </div>
@@ -27,11 +29,13 @@ import IconClear from "@/components/icons/IconClear.vue";
 })
 export default class SearchBar extends Vue {
   //   @Prop({default: 0}) private active!: number;
-  search: string = ""
+  search: string = "";
 
-  clear (): void {
-    this.search = "";
-    console.log("hello")
+  // When search icon is clicked, focus on input
+  // Using ref of input "search"
+  focus (): void {
+    let theField = <HTMLInputElement>this.$refs.search;
+    theField.focus();
   }
 }
 </script>
@@ -40,6 +44,7 @@ export default class SearchBar extends Vue {
 .search-container {
   display: flex;
   align-content: center;
+  padding: 8px 0;
 }
 
 .search-container input {
@@ -47,25 +52,33 @@ export default class SearchBar extends Vue {
   flex-grow: 1;
   font-size: 1rem;
   color: $black;
+  border: 0;
 }
 
+// Change placeholder text color
 .search-container input::placeholder {
   color: $grey;
   opacity: 1; /* Firefox */
 }
 
-.search-container svg:first-child {
+// Search icon
+.search-container div:first-child svg {
   margin: 12px 16px 12px 26px;
   color: $grey;
 }
 
+// Force container to not move
+// Somehow when clear icon appears, there is 10px created below it
+// Making it 54px
+// Test again next time and remove if necessary
 .search-container div {
-  display: inline;
   height: 44px;
 }
 
-.search-container div svg:last-child {
+// Clear icon
+.search-container div:last-child svg {
   margin: 12px 16px;
   color: $primary;
+  cursor: pointer;
 }
 </style>

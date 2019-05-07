@@ -1,18 +1,38 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+    <div class="discover-prof">
+      <span>Discover Professors</span>
+      <dropdown></dropdown>
+    </div>
+
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
+import Dropdown from '@/components/Dropdown.vue';
 
 @Component({
   components: {
-    HelloWorld,
+    Dropdown
   },
 })
 export default class Home extends Vue {}
 </script>
+
+<style scoped lang="scss">
+.home {
+  background-color: $background;
+}
+
+.discover-prof {
+  margin: 10px 0;
+  padding: 16px 10px;
+  background-color: $white;
+}
+
+.discover-prof span {
+  font-weight: 900;
+  font-size: 1.5rem;
+}
+</style>

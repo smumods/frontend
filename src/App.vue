@@ -7,7 +7,7 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/login">Login</router-link>
     </div>-->
-    <router-view/>
+    <router-view class="router"/>
   </div>
 </template>
 
@@ -34,6 +34,9 @@ export default {
 #app {
   box-sizing: border-box;
   font-family: "Source Sans Pro", sans-serif;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .nav-title {
@@ -43,5 +46,9 @@ export default {
   font-size: 1.5em;
   color: $primary;
   font-weight: 700;
+}
+
+.router {
+  flex-grow: 1;
 }
 </style>
