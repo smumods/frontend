@@ -74,7 +74,7 @@ export default class Home extends Vue {
 
 .discover-prof>span {
   font-weight: 900;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
 }
 
 // Top professor container
@@ -96,13 +96,16 @@ export default class Home extends Vue {
   flex-basis: 0;
   padding: 0 12px;
   justify-content: space-between;
+  font-size: 0.8rem;
 }
 
+// Top professor name
 .top-professor>p {
-  font-weight: 700;
+  font-weight: 600;
   margin: 8px 0;
   text-align: center;
-  line-height: 1.2rem;
+  line-height: 1rem;
+  
 }
 
 // Review and rating of professor

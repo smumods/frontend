@@ -38,7 +38,7 @@ select.form-wrapper {
     background: unset;
     color: $professor;
     margin: 14px 0 0 -6px;
-    font-weight: 700;
+    font-weight: 600;
     font-size: 0.9rem;
 }
 // https://stackoverflow.com/questions/36702751/how-can-i-customize-a-select-drop-down-box-using-css

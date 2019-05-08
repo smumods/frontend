@@ -29,11 +29,13 @@ export default {
 
 @import "./styles/_variables.scss";
 
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,900');
+// @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,900');
+@import url('https://rsms.me/inter/inter.css');
 
 #app {
   box-sizing: border-box;
-  font-family: "Source Sans Pro", sans-serif;
+  // font-family: "Source Sans Pro", sans-serif;
+  font-family: 'Inter', sans-serif;
   height: 100vh;
   display: flex;
   flex-direction: column;
