@@ -12,8 +12,8 @@
 </template>
 
 <script>
-import NavTabs from "./components/NavTabs.vue"
-import SearchBar from "./components/SearchBar.vue"
+import NavTabs from "@/components/NavTabs.vue"
+import SearchBar from "@/components/SearchBar.vue"
 
 export default {
   components: {

@@ -2,25 +2,25 @@
   <ul class="tab-container">
     <li>
       <div :class="[{'nav-icon-title': true}, {'active': active === 0}]">
-        <icon-base icon-name="discover"><icon-discover /></icon-base>
+        <icon-base width="28" height="28" icon-name="discover"><icon-discover /></icon-base>
         <span>Discover</span>
       </div>
     </li>
     <li>
       <div :class="[{'nav-icon-title': true}, {'active': active === 1}]">
-        <icon-base icon-name="professor"><icon-professor /></icon-base>
+        <icon-base width="28" height="28" icon-name="professor"><icon-professor /></icon-base>
         <span>Professors</span>
       </div>
     </li>
     <li>
       <div :class="[{'nav-icon-title': true}, {'active': active === 2}]">
-        <icon-base icon-name="module"><icon-module /></icon-base>
+        <icon-base width="28" height="28" icon-name="module"><icon-module /></icon-base>
         <span>Modules</span>
       </div>
     </li>
     <li>
       <div :class="[{'nav-icon-title': true}, {'active': active === 3}]">
-        <icon-base icon-name="profile"><icon-profile /></icon-base>
+        <icon-base width="28" height="28" icon-name="profile"><icon-profile /></icon-base>
         <span>Profile</span>
       </div>
     </li>
