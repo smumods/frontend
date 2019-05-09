@@ -1,7 +1,7 @@
 <template>
   <!-- TODO: Image clip: https://css-tricks.com/clipping-masking-css/ -->
-  <img class="clip-circle" v-if="src" :src="src">
-  <icon-base width="88" height="88" v-else name="profile">
+  <img class="clip-circle" v-if="src" :src="src" :style="`width: ${size}px; height: ${size}px;`">
+  <icon-base :width="size" :height="size" v-else name="profile">
     <icon-profile></icon-profile>
   </icon-base>
 </template>
@@ -18,14 +18,13 @@ import IconProfile from '@/components/icons/IconProfile.vue';
 })
 export default class ProfileImage extends Vue{
     @Prop() private src!: string;
+    @Prop({default: 20}) private size!: number;
 }
 </script>
 
 <style scoped lang="scss">
 .clip-circle {
-    width: 88px;
-    height: 88px;
     object-fit: cover;
-    clip-path: circle(40px at center);
+    clip-path: circle(50% at center);
 }
 </style>

@@ -6,7 +6,7 @@
       <div class="top-three-professors">
         <div class="top-professor" v-for="(prof, index) in top3Professors" :key="index">
           <!-- <profile-image :src="prof.src"></profile-image> -->
-          <profile-image :src="'https://peopledotcom.files.wordpress.com/2017/11/harry-meghan-15.jpg?crop=0px%2C0px%2C2000px%2C1050px&resize=1200%2C630'"></profile-image>
+          <profile-image :size="88" :src="'https://peopledotcom.files.wordpress.com/2017/11/harry-meghan-15.jpg?crop=0px%2C0px%2C2000px%2C1050px&resize=1200%2C630'"></profile-image>
           <p>{{prof.name}}</p>
           <div>
             <p>{{prof.reviews}}<span> ✏️</span></p>
@@ -15,7 +15,7 @@
         </div>
       </div>
       <ul>
-        
+        <professor-list-item></professor-list-item>
       </ul>
     </div>
 
@@ -26,10 +26,11 @@
 import { Component, Vue } from 'vue-property-decorator';
 import Dropdown from '@/components/Dropdown.vue';
 import ProfileImage from '@/components/ProfileImage.vue';
+import ProfessorListItem from '@/components/ProfessorListItem.vue';
 
 @Component({
   components: {
-    Dropdown, ProfileImage
+    Dropdown, ProfileImage, ProfessorListItem
   },
 })
 export default class Home extends Vue {
