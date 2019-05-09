@@ -1,12 +1,12 @@
 <template>
   <div class="search-container">
-    <div @click="focus">
+    <div class="icon-container" @click="focus">
       <icon-base icon-name="search">
         <icon-search/>
       </icon-base>
     </div>
     <input ref="search" @keyup.esc="search = ''" placeholder="Search profs or modules" v-model="search">
-    <div @click="search = ''" v-show="search.length > 0">
+    <div class="icon-container" @click="search = ''" v-show="search.length > 0">
       <icon-base icon-name="clear">
         <icon-clear/>
       </icon-base>
@@ -67,12 +67,11 @@ export default class SearchBar extends Vue {
   color: $grey;
 }
 
-// Force container to not move
-// Somehow when clear icon appears, there is 10px created below it
-// Making it 54px
-// Test again next time and remove if necessary
-.search-container div {
-  height: 44px;
+// Required class to be declared
+// To avoid unwanted 10px 
+.icon-container {
+  display: flex;
+  align-items: center;
 }
 
 // Clear icon
