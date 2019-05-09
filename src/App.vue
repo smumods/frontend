@@ -24,8 +24,6 @@ export default {
 </script>
 
 <style lang="scss">
-// Import Bulma's core
-@import "~bulma/sass/utilities/_all";
 
 @import "./styles/_variables.scss";
 

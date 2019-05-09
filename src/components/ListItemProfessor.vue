@@ -1,13 +1,13 @@
 <template>
 <li>
     <div class="list-item-container">
-        <div><span>{{professor.school}}</span><span></span></div>
-        <!-- <profile-image :src="professor.src"></profile-image> -->
-        <profile-image size="30" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTReY7jn19D31upqxfVtdyq6USfW9NlwZRLYb82sJMD9AndH8eY"></profile-image>
-        <span class="professor">{{professor.name}}</span>
+        <div><span>{{data.school}}</span><span></span></div>
+        <profile-image size="30" :src="data.src"></profile-image>
+        <!-- <profile-image size="30" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTReY7jn19D31upqxfVtdyq6USfW9NlwZRLYb82sJMD9AndH8eY"></profile-image> -->
+        <span class="professor">{{data.name}}</span>
         <!-- <span>longlonglonglonglonglong</span> -->
-        <span class="professor-number">{{professor.reviews}}<span>✏️</span></span>
-        <span class="professor-number">{{professor.rating}}<span>⭐️</span></span>
+        <span class="professor-number">{{data.reviews}}<span>✏️</span></span>
+        <span class="professor-number">{{data.rating}}<span>⭐️</span></span>
     </div>
 </li>
 </template>
@@ -21,8 +21,8 @@ import ProfileImage from '@/components/ProfileImage.vue';
       ProfileImage
   },
 })
-export default class ProfessorListItem extends Vue{
-    @Prop() private professor!: object;
+export default class ListItemProfessor extends Vue{
+    @Prop() private data!: object;
 }
 </script>
 
@@ -86,7 +86,7 @@ li {
             overflow-wrap: break-word;
             text-align: left;
             line-height: 1em;
-            margin: auto 0 auto 30%;
+            margin: auto 0 auto 104px;
             padding: 0 2px;
         }
 

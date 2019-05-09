@@ -1,47 +1,78 @@
 <template>
   <div class="home">
-    <div class="discover-prof">
+    <div class="discover-card">
       <span>Discover Professors</span>
-      <dropdown></dropdown>
+      <dropdown type="professor"></dropdown>
       <div class="top-three-professors">
         <div class="top-professor" v-for="(prof, index) in top3Professors" :key="index">
           <!-- <profile-image :src="prof.src"></profile-image> -->
-          <profile-image :size="88" :src="'https://peopledotcom.files.wordpress.com/2017/11/harry-meghan-15.jpg?crop=0px%2C0px%2C2000px%2C1050px&resize=1200%2C630'"></profile-image>
+          <profile-image
+            :size="88"
+            :src="'https://peopledotcom.files.wordpress.com/2017/11/harry-meghan-15.jpg?crop=0px%2C0px%2C2000px%2C1050px&resize=1200%2C630'"
+          ></profile-image>
           <p>{{prof.name}}</p>
           <div>
-            <p>{{prof.reviews}}<span> ✏️</span></p>
-            <p>{{prof.rating}}<span> ⭐️</span></p>
+            <p>
+              {{prof.reviews}}
+              <span>✏️</span>
+            </p>
+            <p>
+              {{prof.rating}}
+              <span>⭐️</span>
+            </p>
           </div>
         </div>
       </div>
-      <ul class="top-professor-list">
-        <professor-list-item v-for="(professor, index) in top3Professors" :key="index" :professor="professor"></professor-list-item>
+      <ul class="top-list">
+        <list-item-professor
+          v-for="(professor, index) in top3Professors"
+          :key="index"
+          :data="professor"
+        ></list-item-professor>
       </ul>
+      <b-button class="view-more" type="is-text">View More</b-button>
     </div>
-
+    <div class="discover-card">
+      <span>Discover Modules</span>
+      <dropdown type="module" v-model="selectedModuleDropdown"></dropdown>
+      <ul class="top-list">
+        <list-item-module
+          v-for="(module, index) in topModules"
+          :key="index"
+          :data="module"
+          :dropdown="selectedModuleDropdown"
+        ></list-item-module>
+      </ul>
+      <b-button class="view-more" type="is-text">View More</b-button>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import Dropdown from '@/components/Dropdown.vue';
-import ProfileImage from '@/components/ProfileImage.vue';
-import ProfessorListItem from '@/components/ProfessorListItem.vue';
+import { Component, Vue } from "vue-property-decorator";
+import Dropdown from "@/components/Dropdown.vue";
+import ProfileImage from "@/components/ProfileImage.vue";
+import ListItemProfessor from "@/components/ListItemProfessor.vue";
+import ListItemModule from "@/components/ListItemModule.vue";
 
 @Component({
   components: {
-    Dropdown, ProfileImage, ProfessorListItem
-  },
+    Dropdown,
+    ProfileImage,
+    ListItemProfessor,
+    ListItemModule
+  }
 })
 export default class Home extends Vue {
-
+  // Need the top 8 professors from backend
+  // View more will load either a new page or re-query more??
   top3Professors: Array<Object> = [
     {
       src: "",
       name: "Alice, ZHANG Lin",
       reviews: 440,
       rating: 4.9,
-      school: 'sob',
+      school: "sob",
       liked: false
     },
     {
@@ -49,7 +80,7 @@ export default class Home extends Vue {
       name: "Udom Paowsong",
       reviews: 382,
       rating: 4.9,
-      school: 'sis',
+      school: "sis",
       liked: false
     },
     {
@@ -57,10 +88,25 @@ export default class Home extends Vue {
       name: "Carl Wildner",
       reviews: 483,
       rating: 4.7,
-      school: 'socsc',
+      school: "socsc",
       liked: false
     }
-  ]
+  ];
+
+  topModules: Array<Object> = [
+    {
+      subjectArea: "LGST",
+      moduleCode: "101",
+      moduleName: "Ethics in Business",
+      reviews: 102,
+      professors: ["a", "b", "c"],
+      classes: ["a", "b", "c"],
+      vacancies: 20
+    }
+  ];
+
+  selectedModuleDropdown: number = 0;
+
 }
 </script>
 
@@ -69,30 +115,39 @@ export default class Home extends Vue {
   background-color: $background;
 }
 
-.discover-prof {
+.discover-card {
   margin: 10px 0;
   padding: 16px 10px;
   background-color: $white;
 
-  > .top-professor-list {
-    margin-top: 28px;
+  > .top-three-professors {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 14px 0;
+    align-items: stretch;
+  }
+
+  > .top-list {
+    margin-top: 14px;
+  }
+
+  > .view-more {
+    color: $primary;
+    width: 100%;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+
+  > span {
+    font-weight: 900;
+    font-size: 1.4rem;
   }
 }
 
-.discover-prof>span {
-  font-weight: 900;
-  font-size: 1.4rem;
-}
-
 // Top professor container
-.top-three-professors {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-end;
-  margin-top: 8px;
-  align-items: stretch;
-}
+
 
 // Top Professor
 .top-professor {
@@ -107,16 +162,15 @@ export default class Home extends Vue {
 }
 
 // Top professor name
-.top-professor>p {
+.top-professor > p {
   font-weight: 600;
   margin: 8px 0;
   text-align: center;
   line-height: 1rem;
-  
 }
 
 // Review and rating of professor
-.top-professor>div:last-child {
+.top-professor > div:last-child {
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -124,15 +178,14 @@ export default class Home extends Vue {
   align-self: flex-end;
 }
 
-.top-professor>div:last-child>p>span {
+.top-professor > div:last-child > p > span {
   font-size: 0.8rem;
 }
 
 // Select middle top professor
-.top-three-professors>div:nth-child(2) {
+.top-three-professors > div:nth-child(2) {
   padding: 6px 12px;
-  box-shadow: 0 2px 20px 0 rgba(0,0,0,0.10);
+  box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.1);
   margin-top: -8px;
 }
-
 </style>

@@ -1,13 +1,13 @@
 <template>
-    <select class="form-wrapper" v-model="selected">
-      <template v-for="(item, index) in professorSortList">
+    <select class="form-wrapper" v-model="selectedLocal" :change="$emit('change', selectedLocal)">
+      <template v-for="(item, index) in list">
         <option :class="[{option: true}]" :value="index" :key="index">{{item}}</option>
       </template>
     </select>
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from "vue-property-decorator";
+import { Component, Model, Prop, Watch, Vue } from "vue-property-decorator";
 
 @Component({
   components: {
@@ -15,8 +15,14 @@ import { Component, Prop, Vue } from "vue-property-decorator";
   }
 })
 export default class Dropdown extends Vue {
-  //   @Prop({default: 0}) private active!: number;
-  selected: number = 0;
+  @Prop() private type!: string;
+
+  // @Prop() private selected!: number;
+  @Model('change', { type: Number }) readonly selected!: number
+  selectedLocal: number = 0; // Vue complains not to mutate prop 'selected', so v-model above cannot use that
+
+  // selected: number = 0;
+  list: string[] = [];
   professorSortList: string[] = [
     "Overall best",
     "Most reviews",
@@ -25,6 +31,16 @@ export default class Dropdown extends Vue {
     'Level of "fun"',
     "Amount of work"
   ];
+  moduleSortList: string[] = [
+    "Most number of reviews",
+    "Most professors teaching",
+    "Most classes",
+    "Most vacancies",
+  ];
+
+  created() {
+    this.list = this.type === "module" ? this.moduleSortList : this.professorSortList;
+  }
 }
 </script>
 
