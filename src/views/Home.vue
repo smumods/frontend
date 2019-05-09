@@ -5,11 +5,8 @@
       <dropdown></dropdown>
       <div class="top-three-professors">
         <div class="top-professor" v-for="(prof, index) in top3Professors" :key="index">
-          <!-- TODO: Image clip: https://css-tricks.com/clipping-masking-css/ -->
-          <img v-if="prof.src"/>
-          <icon-base width="88" height="88" v-else name="profile">
-            <icon-profile></icon-profile>
-          </icon-base>
+          <!-- <profile-image :src="prof.src"></profile-image> -->
+          <profile-image :src="'https://peopledotcom.files.wordpress.com/2017/11/harry-meghan-15.jpg?crop=0px%2C0px%2C2000px%2C1050px&resize=1200%2C630'"></profile-image>
           <p>{{prof.name}}</p>
           <div>
             <p>{{prof.reviews}}<span> ✏️</span></p>
@@ -28,12 +25,11 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import Dropdown from '@/components/Dropdown.vue';
-import IconBase from '@/components/icons/IconBase.vue';
-import IconProfile from '@/components/icons/IconProfile.vue';
+import ProfileImage from '@/components/ProfileImage.vue';
 
 @Component({
   components: {
-    Dropdown, IconBase, IconProfile
+    Dropdown, ProfileImage
   },
 })
 export default class Home extends Vue {
