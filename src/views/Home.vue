@@ -14,8 +14,8 @@
           </div>
         </div>
       </div>
-      <ul>
-        <professor-list-item></professor-list-item>
+      <ul class="top-professor-list">
+        <professor-list-item v-for="(professor, index) in top3Professors" :key="index" :professor="professor"></professor-list-item>
       </ul>
     </div>
 
@@ -40,19 +40,25 @@ export default class Home extends Vue {
       src: "",
       name: "Alice, ZHANG Lin",
       reviews: 440,
-      rating: 4.9
+      rating: 4.9,
+      school: 'sob',
+      liked: false
     },
     {
       src: "",
       name: "Udom Paowsong",
       reviews: 382,
-      rating: 4.9
+      rating: 4.9,
+      school: 'sis',
+      liked: false
     },
     {
       src: "",
       name: "Carl Wildner",
       reviews: 483,
-      rating: 4.7
+      rating: 4.7,
+      school: 'socsc',
+      liked: false
     }
   ]
 }
@@ -67,6 +73,10 @@ export default class Home extends Vue {
   margin: 10px 0;
   padding: 16px 10px;
   background-color: $white;
+
+  > .top-professor-list {
+    margin-top: 28px;
+  }
 }
 
 .discover-prof>span {

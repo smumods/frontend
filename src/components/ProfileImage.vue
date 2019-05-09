@@ -17,7 +17,11 @@ import IconProfile from '@/components/icons/IconProfile.vue';
   },
 })
 export default class ProfileImage extends Vue{
+    // Image source
+    // If none is provided, defaults to svg profile icon
     @Prop() private src!: string;
+
+    // Fill in size of profile image in px
     @Prop({default: 20}) private size!: number;
 }
 </script>
