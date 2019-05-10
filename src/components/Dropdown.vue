@@ -17,7 +17,6 @@ import { Component, Model, Prop, Watch, Vue } from "vue-property-decorator";
 export default class Dropdown extends Vue {
   @Prop() private type!: string;
 
-  // @Prop() private selected!: number;
   @Model('change', { type: Number }) readonly selected!: number
   selectedLocal: number = 0; // Vue complains not to mutate prop 'selected', so v-model above cannot use that
 

@@ -5,8 +5,8 @@
         <icon-search/>
       </icon-base>
     </div>
-    <input ref="search" @keyup.esc="search = ''" placeholder="Search profs or modules" v-model="search">
-    <div class="icon-container" @click="search = ''" v-show="search.length > 0">
+    <input ref="search" @keyup.esc="searchLocal = ''" placeholder="Search profs or modules" v-model="searchLocal" :change="$emit('change', searchLocal)">
+    <div class="icon-container" @click="searchLocal = ''" v-show="searchLocal.length > 0">
       <icon-base icon-name="clear">
         <icon-clear/>
       </icon-base>
@@ -15,7 +15,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from "vue-property-decorator";
+import { Component, Prop, Model, Vue } from "vue-property-decorator";
 import IconBase from "@/components/icons/IconBase.vue";
 import IconSearch from "@/components/icons/IconSearch.vue";
 import IconClear from "@/components/icons/IconClear.vue";
@@ -29,7 +29,9 @@ import IconClear from "@/components/icons/IconClear.vue";
 })
 export default class SearchBar extends Vue {
   //   @Prop({default: 0}) private active!: number;
-  search: string = "";
+  // search: string = "";
+  @Model('change', { type: String }) readonly search!: string
+  searchLocal: string = ""; // Vue complains not to mutate prop 'selected', so v-model above cannot use that
 
   // When search icon is clicked, focus on input
   // Using ref of input "search"

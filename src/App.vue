@@ -2,7 +2,7 @@
   <div id="app">
     <span class="nav-title">SMUMods</span>
     <nav-tabs></nav-tabs>
-    <search-bar></search-bar>
+    <search-bar v-model="searchText"></search-bar>
     <!-- <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/login">Login</router-link>
@@ -19,6 +19,11 @@ export default {
   components: {
     NavTabs, SearchBar
   },
+  data() {
+    return {
+      searchText: "",
+    }
+  }
   // ...
 }
 </script>

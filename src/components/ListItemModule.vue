@@ -42,15 +42,20 @@ export default class ListItemModule extends Vue {
   //   ];
 //   extraInfo: string = ""
 
+// Errors because data's structure is not defined I think
+// Might need to have a schema of some sort??
   get extraInfoString() {
       switch (this.dropdown) {
           case 0:
               return "";
             case 1:
+            // @ts-ignore
                 return `${this.data.professors.length} 👨‍🏫`;
             case 2:
+            // @ts-ignore
                 return `${this.data.classes.length} 🏫`;
             case 3:
+            // @ts-ignore
                 return `${this.data.vacancies} 🈳`;
           default:
               break;
