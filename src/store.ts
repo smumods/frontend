@@ -5,7 +5,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    hello: "Hello",
+    searchText: "",
     professorSortList: [
       "Overall best",
       "Most reviews",
@@ -59,7 +59,9 @@ export default new Vuex.Store({
     ]
   },
   mutations: {
-
+    searchUpdate (state, text: string) {
+      state.searchText = text;
+    }
   },
   actions: {
 

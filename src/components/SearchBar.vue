@@ -16,7 +16,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Model, Vue } from "vue-property-decorator";
+import { Component, Model, Watch, Vue } from "vue-property-decorator";
 import IconBase from "@/components/icons/IconBase.vue";
 import IconSearch from "@/components/icons/IconSearch.vue";
 import IconClear from "@/components/icons/IconClear.vue";
@@ -34,6 +34,11 @@ export default class SearchBar extends Vue {
   @Model('change', { type: String }) readonly search!: string
   searchLocal: string = ""; // Vue complains not to mutate prop 'selected', so v-model above cannot use that
 
+  // Is this the best way?? 
+  @Watch('searchLocal')
+  onChildChanged(val: string, oldVal: string) { 
+    this.$store.commit('searchUpdate', val)
+  }
   // When search icon is clicked, focus on input
   // Using ref of input "search"
   focusOrBack (): void {
@@ -44,7 +49,6 @@ export default class SearchBar extends Vue {
       this.searchLocal = "";
       this.$router.go(-1); // Might have problem in the future??
     }
-    
   }
 }
 </script>

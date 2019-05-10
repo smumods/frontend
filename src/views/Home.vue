@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <div class="discover-card">
+    <div class="card">
       <span>Discover Professors</span>
       <dropdown type="professor"></dropdown>
       <div class="top-three-professors">
@@ -32,7 +32,7 @@
       </ul>
       <b-button class="view-more" type="is-text">View More</b-button>
     </div>
-    <div class="discover-card">
+    <div class="card">
       <span>Discover Modules</span>
       <dropdown type="module" v-model="selectedModuleDropdown"></dropdown>
       <ul class="top-list">
@@ -79,10 +79,7 @@ export default class Home extends Vue {
   background-color: $background;
 }
 
-.discover-card {
-  margin: 10px 0;
-  padding: 16px 10px;
-  background-color: $white;
+.card {
 
   > .top-three-professors {
     display: flex;

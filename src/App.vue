@@ -44,7 +44,6 @@ export default {
       }
     }
   }
-  // ...
 };
 </script>
 
@@ -74,5 +73,11 @@ export default {
 
 .router {
   flex-grow: 1;
+}
+
+.card {
+  margin: 10px 0;
+  padding: 16px 10px;
+  background-color: $white;
 }
 </style>
