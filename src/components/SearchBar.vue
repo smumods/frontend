@@ -50,31 +50,27 @@ export default class SearchBar extends Vue {
 </script>
 
 <style scoped lang="scss">
+
 .search-container {
   display: flex;
   align-content: center;
   padding: 8px 0;
-}
 
-.search-container input {
-  outline: none;
-  flex-grow: 1;
-  font-size: 1rem;
-  color: $black;
-  border: 0;
-}
+  input {
+    outline: none;
+    flex-grow: 1;
+    font-size: 1rem;
+    color: $black;
+    border: 0;
+  }
 
+  // Change placeholder text color
+  input::placeholder {
+    color: $grey;
+    opacity: 1; /* Firefox */
+  }
 
-
-// Change placeholder text color
-.search-container input::placeholder {
-  color: $grey;
-  opacity: 1; /* Firefox */
-}
-
-// Left icon
-.search-container {
-
+  // Left icon
   // Required class to be declared
   // To avoid unwanted 10px 
   > .icon-container {
@@ -88,17 +84,17 @@ export default class SearchBar extends Vue {
     }
   }
 
+  // Right icon
+  > div:last-child svg {
+    margin: 12px 16px;
+    color: $primary;
+    cursor: pointer;
+  }
+
   // Active state
   > .active > svg {
       color: $primary;
   } 
-}
-
-// Clear icon
-.search-container div:last-child svg {
-  margin: 12px 16px;
-  color: $primary;
-  cursor: pointer;
 }
 
 svg {
