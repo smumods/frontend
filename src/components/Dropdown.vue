@@ -43,6 +43,7 @@ select.form-wrapper {
     margin: 14px 0 0 -6px;
     font-weight: 600;
     font-size: 0.9rem;
+    cursor: pointer;
 }
 // https://stackoverflow.com/questions/36702751/how-can-i-customize-a-select-drop-down-box-using-css
 // https://www.w3schools.com/howto/howto_custom_select.asp
