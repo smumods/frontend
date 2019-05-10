@@ -66,44 +66,8 @@ import ListItemModule from "@/components/ListItemModule.vue";
 export default class Home extends Vue {
   // Need the top 8 professors from backend
   // View more will load either a new page or re-query more??
-  top3Professors: Array<Object> = [
-    {
-      src: "",
-      name: "Alice, ZHANG Lin",
-      reviews: 440,
-      rating: 4.9,
-      school: "sob",
-      liked: false
-    },
-    {
-      src: "",
-      name: "Udom Paowsong",
-      reviews: 382,
-      rating: 4.9,
-      school: "sis",
-      liked: false
-    },
-    {
-      src: "",
-      name: "Carl Wildner",
-      reviews: 483,
-      rating: 4.7,
-      school: "socsc",
-      liked: false
-    }
-  ];
-
-  topModules: Array<Object> = [
-    {
-      subjectArea: "LGST",
-      moduleCode: "101",
-      moduleName: "Ethics in Business",
-      reviews: 102,
-      professors: ["a", "b", "c"],
-      classes: ["a", "b", "c"],
-      vacancies: 20
-    }
-  ];
+  top3Professors: Array<Object> = this.$store.state.topProfessors;
+  topModules: Array<Object> = this.$store.state.topModules;
 
   selectedModuleDropdown: number = 0;
 

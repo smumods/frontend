@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <span class="nav-title">SMUMods</span>
-    <nav-tabs></nav-tabs>
+    <span v-show="!searchText" class="nav-title">SMUMods</span>
+    <nav-tabs v-show="!searchText"></nav-tabs>
     <search-bar v-model="searchText"></search-bar>
     <!-- <div id="nav">
       <router-link to="/">Home</router-link> |
@@ -12,33 +12,52 @@
 </template>
 
 <script>
-import NavTabs from "@/components/NavTabs.vue"
-import SearchBar from "@/components/SearchBar.vue"
+import NavTabs from "@/components/NavTabs.vue";
+import SearchBar from "@/components/SearchBar.vue";
 
 export default {
   components: {
-    NavTabs, SearchBar
+    NavTabs,
+    SearchBar
   },
   data() {
     return {
-      searchText: "",
+      searchText: ""
+    };
+  },
+  watch: {
+    searchText() {
+      if (
+        this.$router.currentRoute.name === "home" &&
+        this.searchText.length > 0
+      ) {
+        // console.log("Searching");
+        this.$router.push({
+          name: "search"
+          // , params: { userId: '123' }
+        });
+      } else if (
+        this.$router.currentRoute.name === "search" &&
+        !this.searchText
+      ) {
+        this.$router.push({ name: "home" });
+      }
     }
   }
   // ...
-}
+};
 </script>
 
 <style lang="scss">
-
 @import "./styles/_variables.scss";
 
 // @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,900');
-@import url('https://rsms.me/inter/inter.css');
+@import url("https://rsms.me/inter/inter.css");
 
 #app {
   box-sizing: border-box;
   // font-family: "Source Sans Pro", sans-serif;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   height: 100vh;
   display: flex;
   flex-direction: column;

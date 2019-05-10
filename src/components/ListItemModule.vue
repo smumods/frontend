@@ -34,6 +34,8 @@ import ProfileImage from "@/components/ProfileImage.vue";
 export default class ListItemModule extends Vue {
   @Prop() private data!: object;
   @Prop() private dropdown!: number;
+
+  // Schema from store.ts
   // moduleSortList: string[] = [
   //     "Most number of reviews",
   //     "Most professors teaching",

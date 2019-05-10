@@ -22,20 +22,8 @@ export default class Dropdown extends Vue {
 
   // selected: number = 0;
   list: string[] = [];
-  professorSortList: string[] = [
-    "Overall best",
-    "Most reviews",
-    "Highest rated",
-    "Marking leniency",
-    'Level of "fun"',
-    "Amount of work"
-  ];
-  moduleSortList: string[] = [
-    "Most number of reviews",
-    "Most professors teaching",
-    "Most classes",
-    "Most vacancies",
-  ];
+  professorSortList: string[] = this.$store.state.professorSortList;
+  moduleSortList: string[] = this.$store.state.moduleSortList;
 
   created() {
     this.list = this.type === "module" ? this.moduleSortList : this.professorSortList;
